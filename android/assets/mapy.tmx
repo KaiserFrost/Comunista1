@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2017.12.21" orientation="orthogonal" renderorder="right-down" width="50" height="5" tilewidth="128" tileheight="128" infinite="0" nextobjectid="19">
+ <tileset firstgid="1" source="../../../tilemap/Stuff.tsx"/>
+ <layer name="Camada de Tiles 1" width="50" height="5">
+  <data encoding="base64" compression="zlib">
+   eJwTYmBgEBrFo3gUD2sMAH4eEZU=
+  </data>
+ </layer>
+ <layer name="chão" width="50" height="5">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFwxnwAjEfEPMPtENIBITcTS9/MQIxExmYGYgFycDk2seEZAY2OQBC5wHD
+  </data>
+ </layer>
+ <objectgroup name="ground">
+  <object id="5" x="0" y="512" width="1920" height="128"/>
+  <object id="6" x="3584" y="512" width="1920" height="128"/>
+  <object id="7" x="5760" y="512" width="640" height="128"/>
+  <object id="16" x="2045.45" y="421.212" width="381.818" height="48.4848"/>
+  <object id="17" x="2557.58" y="287.879" width="378.788" height="48.4848"/>
+  <object id="18" x="3075.76" y="415.152" width="381.818" height="36.3636"/>
+ </objectgroup>
+</map>

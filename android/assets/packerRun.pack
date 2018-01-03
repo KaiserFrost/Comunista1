@@ -1,0 +1,19 @@
+
+packerRun.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+RunFaustoII
+  rotate: false
+  xy: 1, 1
+  size: 1210, 257
+  orig: 1210, 257
+  offset: 0, 0
+  index: -1
+RunFaustoV
+  rotate: false
+  xy: 1213, 1
+  size: 1210, 257
+  orig: 1210, 257
+  offset: 0, 0
+  index: -1

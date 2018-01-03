@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2017.12.21" orientation="orthogonal" renderorder="right-down" width="50" height="5" tilewidth="128" tileheight="128" infinite="0" nextobjectid="5">
+ <tileset firstgid="1" source="Something.tsx"/>
+ <layer name="Camada de Tiles 1" width="50" height="5">
+  <data encoding="base64" compression="zlib">
+   eJzjZ2Bg4B/Fo3iQY0YgZgdiJjrby05lzAvEnEDMRgOz8WEA97EM+w==
+  </data>
+ </layer>
+ <objectgroup name="chao">
+  <object id="1" x="0" y="512" width="2560" height="128"/>
+  <object id="2" x="2560" y="384" width="384" height="128"/>
+  <object id="3" x="2944" y="512" width="3456" height="128"/>
+  <object id="4" x="6040" y="1528"/>
+ </objectgroup>
+</map>

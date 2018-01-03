@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2017.12.21" orientation="orthogonal" renderorder="right-down" width="50" height="5" tilewidth="128" tileheight="128" infinite="0" nextobjectid="4">
+ <tileset firstgid="1" source="spritesheet.tsx"/>
+ <layer name="Camada de Tiles 1" width="50" height="5">
+  <data encoding="base64" compression="zlib">
+   eJzjY2Bg4BvFo3gAMBMQswIx/yBwCy7MSgRmQ8LEqB8IDAAG9gva
+  </data>
+ </layer>
+ <objectgroup name="chao">
+  <object id="1" x="0" y="512" width="1152" height="128"/>
+  <object id="2" x="1152" y="384" width="384" height="256"/>
+  <object id="3" x="1536" y="512" width="4864" height="128"/>
+ </objectgroup>
+</map>
