@@ -50,7 +50,7 @@ public MyGame game;
     private Box2DDebugRenderer b2dr;
     public PlayScreen(MyGame game){
 
-        atlas = new TextureAtlas("packerRun.pack");
+        atlas = new TextureAtlas("stuffy.pack");
         this.game = game;
 
         camera = new OrthographicCamera();
