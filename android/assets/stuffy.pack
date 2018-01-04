@@ -1,0 +1,12 @@
+
+stuffy.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+RunFaustoIIIII
+  rotate: false
+  xy: 1, 1
+  size: 1210, 256
+  orig: 1210, 256
+  offset: 0, 0
+  index: -1
