@@ -36,7 +36,10 @@ import com.mygdx.game.Sprites.Player;
 public class PlayScreen implements Screen {
 
 public MyGame game;
-    Texture texture;
+
+    public enum State{PAUSA, INGAME,GAMEOVER}
+    public Player.State currentState;
+    public Player.State previousState;
     private OrthographicCamera camera;
     private Viewport gamePort;
     private Hud hud;
@@ -58,11 +61,15 @@ public MyGame game;
         hud = new Hud(game.batch);
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("mapy.tmx");
+
         renderer = new OrthogonalTiledMapRenderer(map,1/ MyGame.PPM);
+
         camera.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight() /2,0);
 
-        world = new World(new Vector2(0,-10),true);
+        world = new World(new Vector2(0,-9),true);
+
         player = new Player(world, this);
+
         b2dr = new Box2DDebugRenderer();
 
         new WorldCreator(world,map);
@@ -72,7 +79,7 @@ public MyGame game;
 
     public void HandleInput(float dt){
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
-            player.body.applyLinearImpulse(new Vector2(0,8f),player.body.getWorldCenter(),true);
+            player.body.applyLinearImpulse(new Vector2(0,6f),player.body.getWorldCenter(),true);
 
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.body.getLinearVelocity().x<=2)
             player.body.applyLinearImpulse(new Vector2(1f,0f),player.body.getWorldCenter(),true);
@@ -80,17 +87,26 @@ public MyGame game;
             player.body.applyLinearImpulse(new Vector2(-1f,0f),player.body.getWorldCenter(),true);
 
     }
-    public void update(float dt)
-    {
-        HandleInput(dt);
-        player.update(dt);
-        world.step(1/60f,6,2);
-        camera.position.x = player.body.getPosition().x;
-        camera.update();
-        renderer.setView(camera);
-    }
+    public void update(float dt) {
 
-    public TextureAtlas getAtlas(){
+
+
+            HandleInput(dt);
+
+            player.update(dt);
+            world.step(1 / 60f, 6, 2);
+
+            camera.position.x = player.body.getPosition().x;
+        camera.position.y = player.body.getPosition().y;
+
+            camera.update();
+            renderer.setView(camera);
+
+
+
+    }
+    public TextureAtlas getAtlas()
+    {
         return atlas;
     }
 
@@ -111,7 +127,9 @@ public MyGame game;
 
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
+        player.setSize(128/MyGame.PPM,128/MyGame.PPM);
         player.draw(game.batch);
+
         game.batch.end();
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();

@@ -43,7 +43,7 @@ public class Player extends Sprite {
 
         for(int i = 0; i < 5; i++) {
             frames.add(new TextureRegion(screen.getAtlas().findRegion("RunFaustoIIIII"), i * 257, 0, 257, 257));
-            running = new Animation(0.1f, frames);
+            running = new Animation(0.2f, frames);
         }
 
         frames.clear();
@@ -110,7 +110,7 @@ public class Player extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(130/ MyGame.PPM);
+        shape.setRadius(60/ MyGame.PPM);
 
         fdef.shape = shape;
         body.createFixture(fdef);

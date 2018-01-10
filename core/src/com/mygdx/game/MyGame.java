@@ -6,11 +6,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.Outros.Assets;
+import com.mygdx.game.Screens.MainMenuScreen;
+import com.mygdx.game.Screens.Options;
 import com.mygdx.game.Screens.PlayScreen;
 
 public class MyGame extends Game {
-	public static final int V_WIDTH =1920;
-	public static final int V_HEIGHT = 1080;
+	public static final int V_WIDTH =800;
+	public static final int V_HEIGHT = 480;
 	public static final float PPM = 100;
 	public SpriteBatch batch;
 
@@ -18,7 +21,9 @@ public class MyGame extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new PlayScreen(this));
+		Options.load();
+		Assets.load();
+		setScreen(new MainMenuScreen(this));
 	}
 
 	@Override
