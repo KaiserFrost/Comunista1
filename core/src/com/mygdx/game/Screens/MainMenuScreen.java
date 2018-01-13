@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MyGame;
@@ -26,6 +28,7 @@ public class MainMenuScreen extends ScreenAdapter {
     Rectangle optionsBounds;
     Rectangle highscoresBounds;
     Vector3 touchPoint;
+    ImageButton playbutton;
 
 
     public MainMenuScreen (MyGame game) {

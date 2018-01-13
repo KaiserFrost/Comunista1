@@ -20,7 +20,11 @@ public class Assets {
     public static Texture scoreButton;
     public static Texture scoreButtonclick;
     public static Texture optionsButton;
-    public static Texture arrow;
+    public static Texture pauseButton;
+    public static Texture arrow, arrowred;
+    public static Texture restartButton;
+    public static Texture noButton;
+    public static Texture soundButton,nosoundButton;
     public static Sound clickSound;
     public static BitmapFont font;
 
@@ -31,7 +35,13 @@ public class Assets {
         scoreButton = new Texture("imagens/score.png");
         optionsButton = new Texture("imagens/defenicoes.png");
         scoreButtonclick =  new Texture("imagens/score2.png");
+        pauseButton = new Texture("imagens/pause.png");
+        arrowred = new Texture("imagens/arrowred.png");
         arrow = new Texture("imagens/arrow.png");
+        restartButton = new Texture("imagens/restart.png");
+        soundButton= new Texture("imagens/sound.png");
+        nosoundButton = new Texture("imagens/nosound.png");
+        noButton = new Texture("imagens/no.png");
         clickSound = Gdx.audio.newSound(Gdx.files.internal("Sound/Click.wav"));
         font =new BitmapFont(Gdx.files.internal("stuff.fnt"),Gdx.files.internal("stuff.png"),false);
     }

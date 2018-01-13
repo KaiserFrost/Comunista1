@@ -32,7 +32,7 @@ public class Player extends Sprite {
     public float stateTimer;
     public Player(World world, PlayScreen screen)
     {
-        super(screen.getAtlas().findRegion("RunFaustoIIIII"));
+        super(screen.getAtlas().findRegion("RunFausto"));
         this.world = world;
         currentState = State.PARADO;
         previousState = State.PARADO;
@@ -41,16 +41,16 @@ public class Player extends Sprite {
         Array<TextureRegion> frames = new Array<TextureRegion>();
 
 
-        for(int i = 0; i < 5; i++) {
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("RunFaustoIIIII"), i * 257, 0, 257, 257));
+        for(int i = 1; i < 5; i++) {
+            frames.add(new TextureRegion(screen.getAtlas().findRegion("RunFausto"), i * 256, 0, 256, 256));
             running = new Animation(0.2f, frames);
         }
 
         frames.clear();
 
         DefinePlayer();
-        playerDefault = new TextureRegion(getTexture(),0,0,257,257);
-        setBounds(0,0,257/MyGame.PPM,257/MyGame.PPM);
+        playerDefault = new TextureRegion(getTexture(),0,0,256,256);
+        setBounds(0,0,256/MyGame.PPM,256/MyGame.PPM);
 
         setRegion(playerDefault);
     }

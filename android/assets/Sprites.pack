@@ -1,0 +1,19 @@
+
+Sprites.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+RunFausto
+  rotate: false
+  xy: 1, 259
+  size: 1210, 256
+  orig: 1210, 256
+  offset: 0, 0
+  index: -1
+badguy
+  rotate: false
+  xy: 1, 1
+  size: 1188, 256
+  orig: 1188, 256
+  offset: 0, 0
+  index: -1
