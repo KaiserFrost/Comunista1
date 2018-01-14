@@ -27,6 +27,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Enemies.Enemy;
+import com.mygdx.game.Enemies.RichGuy;
 import com.mygdx.game.HUD.Hud;
 import com.mygdx.game.MyGame;
 import com.mygdx.game.Outros.Assets;
@@ -53,8 +55,10 @@ public MyGame game;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private Vector3 touchPoint;
+    private WorldCreator creator;
     private World world;
     private Player player;
+    private RichGuy richGuy;
     private TextureAtlas atlas;
     private Box2DDebugRenderer b2dr;
     private Rectangle pauseBounds;
@@ -85,13 +89,14 @@ public MyGame game;
         pauseStage = new Stage(new FitViewport(MyGame.V_WIDTH,MyGame.V_HEIGHT));
         world = new World(new Vector2(0,-9),true);
 
-        player = new Player(world, this);
-
+        player = new Player(this);
+        richGuy = new RichGuy(this, 256/MyGame.PPM,256/MyGame.PPM);
         b2dr = new Box2DDebugRenderer();
 
-        new WorldCreator(world,map);
+        creator = new WorldCreator(this);
 
     }
+
 
     public void HandleInput(float dt){
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
@@ -113,10 +118,18 @@ public MyGame game;
                 case INGAME:
                     HandleInput(dt);
                     player.update(dt);
+                    richGuy.update(dt);
                     world.step(1 / 60f, 6, 2);
 
+                    for(Enemy enemy : creator.getEnemies()) {
+                        enemy.update(dt);
+                      /*  if (enemy.getX() < player.getX() + 224 / MyGame.PPM) {
+                            enemy.body.setActive(true);
+                        }*/
+                    }
+
                     camera.position.x = player.body.getPosition().x;
-                    camera.position.y = player.body.getPosition().y;
+                 //   camera.position.y = player.body.getPosition().y;
                     if (Gdx.input.justTouched()) {
                         camera2.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
@@ -153,11 +166,13 @@ public MyGame game;
                                 if (sound == true) {
                                     Options.soundEnabled = false;
                                     sound = false;
+
                                 }
                                else
                                    {
                                     Options.soundEnabled = true;
                                     sound = true;
+
                                 }
                                 return;
                             }
@@ -197,8 +212,11 @@ public MyGame game;
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
         player.setSize(128/MyGame.PPM,128/MyGame.PPM);
-        player.draw(game.batch);
 
+        for (Enemy enemy : creator.getEnemies())
+            enemy.draw(game.batch);
+        player.draw(game.batch);
+        richGuy.draw(game.batch);
         game.batch.end();
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
@@ -227,6 +245,16 @@ public MyGame game;
 
 
     }
+
+    public World getWorld()
+    {
+        return world;
+    }
+
+    public TiledMap getMap(){
+        return map;
+    }
+
 
     @Override
     public void resize(int width, int height)

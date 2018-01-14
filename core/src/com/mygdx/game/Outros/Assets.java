@@ -1,6 +1,7 @@
 package com.mygdx.game.Outros;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -26,6 +27,7 @@ public class Assets {
     public static Texture noButton;
     public static Texture soundButton,nosoundButton;
     public static Sound clickSound;
+    public static Music music;
     public static BitmapFont font;
 
 
@@ -43,7 +45,11 @@ public class Assets {
         nosoundButton = new Texture("imagens/nosound.png");
         noButton = new Texture("imagens/no.png");
         clickSound = Gdx.audio.newSound(Gdx.files.internal("Sound/Click.wav"));
+
         font =new BitmapFont(Gdx.files.internal("stuff.fnt"),Gdx.files.internal("stuff.png"),false);
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("Sound/Soviet Union National Anthem.mp3"));
+
     }
 
     public static void playSound (Sound sound) {

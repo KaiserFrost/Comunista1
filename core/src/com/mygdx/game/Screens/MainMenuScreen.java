@@ -49,7 +49,11 @@ public class MainMenuScreen extends ScreenAdapter {
     public void update ()
     {
 
-
+      /*  if(Options.soundEnabled == true)
+        Assets.music.play();
+       else if(Options.soundEnabled == false && Assets.music.isPlaying())
+            Assets.music.stop();
+*/
        if (Gdx.input.justTouched())
         {
            //game.setScreen(new PlayScreen(game));

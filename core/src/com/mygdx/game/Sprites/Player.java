@@ -30,10 +30,10 @@ public class Player extends Sprite {
     private Animation jump;
     private boolean correrdireita;
     public float stateTimer;
-    public Player(World world, PlayScreen screen)
+    public Player(PlayScreen screen)
     {
         super(screen.getAtlas().findRegion("RunFausto"));
-        this.world = world;
+        this.world = screen.getWorld();
         currentState = State.PARADO;
         previousState = State.PARADO;
         stateTimer = 0;
@@ -49,7 +49,7 @@ public class Player extends Sprite {
         frames.clear();
 
         DefinePlayer();
-        playerDefault = new TextureRegion(getTexture(),0,0,256,256);
+        playerDefault = new TextureRegion(screen.getAtlas().findRegion("RunFausto"),0,0,256,256);
         setBounds(0,0,256/MyGame.PPM,256/MyGame.PPM);
 
         setRegion(playerDefault);
